@@ -3,6 +3,6 @@
 // Never put a service_role / secret key in this file.
 
 window.LOCALNEST_CONFIG = {
-  supabaseUrl: "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE",
-  supabaseKey: "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE"
+  supabaseUrl: "https://plhauyhsstfpgjhuqvvz.supabase.co",
+  supabaseKey: "sb_publishable_GYIwQvOOjkUbmZktRPTuNw_qDNdTOvV"
 };
