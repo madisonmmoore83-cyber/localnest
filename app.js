@@ -156,3 +156,120 @@ document.getElementById('menuBtn').addEventListener('click', () => {
   document.getElementById('mobileMenu').classList.toggle('open');
 });
 document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+// Step 1: Post a Job prototype
+const defaultJobs = [
+  { id: 'demo-1', service: 'Lawn care', location: 'Local area', timing: 'This weekend', budget: '$45 fixed', desc: 'Front and back yard mowing plus light edging. Standard-size residential lot.', owner: 'Demo request', demo: true },
+  { id: 'demo-2', service: 'Babysitting', location: 'Local area', timing: 'Friday evening', budget: '$20/hr', desc: 'Looking for date-night care for two children for about four hours.', owner: 'Demo request', demo: true },
+  { id: 'demo-3', service: 'House cleaning', location: 'Local area', timing: 'Next week', budget: '$120 fixed', desc: 'One-time cleaning for a two-bedroom home, including kitchen and bathrooms.', owner: 'Demo request', demo: true }
+];
+
+function getSavedJobs() {
+  try {
+    return JSON.parse(localStorage.getItem('localnestPostedJobs') || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveJobs(jobs) {
+  localStorage.setItem('localnestPostedJobs', JSON.stringify(jobs));
+}
+
+function escapeHtml(value = '') {
+  return String(value).replace(/[&<>'"]/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+  })[char]);
+}
+
+function renderJobs() {
+  const jobGrid = document.getElementById('jobGrid');
+  if (!jobGrid) return;
+  const saved = getSavedJobs();
+  const jobs = [...saved, ...defaultJobs];
+  jobGrid.innerHTML = jobs.map(job => `
+    <article class="job-card ${job.demo ? '' : 'user-posted'}">
+      <div class="job-card-top">
+        <div class="job-service">${escapeHtml(job.service)}</div>
+        <span class="job-status">Open</span>
+      </div>
+      <div class="job-meta">
+        <span>📍 ${escapeHtml(job.location)}</span>
+        <span>🗓️ ${escapeHtml(job.timing)}</span>
+      </div>
+      <p class="job-desc">${escapeHtml(job.desc)}</p>
+      <div class="job-card-bottom">
+        <div class="job-budget"><small>Budget</small><strong>${escapeHtml(job.budget)}</strong></div>
+        <span class="job-owner-note">${job.demo ? 'Example' : 'Posted on this device'}</span>
+      </div>
+    </article>
+  `).join('');
+}
+
+renderJobs();
+
+const originalOpenModal = openModal;
+openModal = function(type, payload) {
+  if (type !== 'job') return originalOpenModal(type, payload);
+  modalContent.innerHTML = `
+    <span class="kicker">Post a job</span>
+    <h2>What do you need help with?</h2>
+    <p>Create a local request so providers can understand the job before they respond.</p>
+    <form class="form-grid" id="jobForm">
+      <label>Service category
+        <select name="service" required>
+          <option value="">Choose a service</option>
+          <option>Babysitting</option><option>Lawn care</option><option>House cleaning</option><option>Pet care</option><option>Tutoring</option><option>Moving help</option><option>Handyman</option><option>Errands</option><option>Car washing</option><option>Photography</option><option>Other</option>
+        </select>
+      </label>
+      <div class="form-two">
+        <label>City or ZIP<input name="location" required autocomplete="postal-code" placeholder="Where is the job?"></label>
+        <label>When do you need it?<input name="timing" required placeholder="Example: Saturday morning"></label>
+      </div>
+      <div class="form-two">
+        <label>Budget type
+          <select name="budgetType" required><option>Fixed</option><option>Per hour</option><option>Open to quotes</option></select>
+        </label>
+        <label>Budget amount<input name="budgetAmount" required placeholder="Example: 75"></label>
+      </div>
+      <label>Job details<textarea name="desc" required rows="4" maxlength="500" placeholder="Describe what needs to be done, anything the provider should bring, and important details."></textarea></label>
+      <div class="form-two">
+        <label>First name<input name="name" required autocomplete="given-name" placeholder="Your first name"></label>
+        <label>Email<input name="email" required type="email" autocomplete="email" placeholder="you@example.com"></label>
+      </div>
+      <label class="form-choice"><input type="checkbox" required> I understand this is currently a prototype and the request is stored only on this device, not sent to real providers.</label>
+      <div class="form-note">Next, we will connect this workflow to real customer accounts and a database so jobs can be securely published and matched with providers.</div>
+      <button class="primary-btn" type="submit">Post job request</button>
+    </form>`;
+  modalBackdrop.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+};
+
+modalContent.addEventListener('submit', e => {
+  if (e.target.id !== 'jobForm') return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  const data = new FormData(e.target);
+  const budgetType = data.get('budgetType');
+  const amount = String(data.get('budgetAmount') || '').trim();
+  const budget = budgetType === 'Per hour' ? `$${amount}/hr` : budgetType === 'Open to quotes' ? 'Open to quotes' : `$${amount} fixed`;
+  const newJob = {
+    id: `local-${Date.now()}`,
+    service: String(data.get('service') || ''),
+    location: String(data.get('location') || ''),
+    timing: String(data.get('timing') || ''),
+    budget,
+    desc: String(data.get('desc') || ''),
+    owner: String(data.get('name') || ''),
+    demo: false
+  };
+  const saved = getSavedJobs();
+  saved.unshift(newJob);
+  saveJobs(saved.slice(0, 8));
+  renderJobs();
+  modalContent.innerHTML = `<div class="success-box"><div class="big-check">✓</div><h2>Your job is on the prototype board</h2><p>It is saved only on this device for now. The next build step will connect LocalNest to real accounts and a database.</p><button class="primary-btn" id="viewPostedJob">View posted job</button></div>`;
+  document.getElementById('viewPostedJob').addEventListener('click', () => {
+    closeModal();
+    document.getElementById('jobs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}, true);
