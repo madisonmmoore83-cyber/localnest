@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LocalNest helps people discover trusted local services nearby, from babysitting and lawn care to cleaning, pet care, tutoring, moving help, and handyman services." />
+  <title>LocalNest — Trusted help, close to home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#" class="brand" aria-label="LocalNest home">
+        <span class="brand-mark">LN</span>
+        <span>LocalNest</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#services">Explore services</a>
+        <a href="#how">How it works</a>
+        <a href="#safety">Trust & safety</a>
+        <a href="#providers">For providers</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="ghost-btn" data-open="signin">Sign in</button>
+        <button class="primary-btn small" data-open="provider">Offer a service</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services">Explore services</a>
+      <a href="#how">How it works</a>
+      <a href="#safety">Trust & safety</a>
+      <a href="#providers">For providers</a>
+      <button class="primary-btn" data-open="provider">Offer a service</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>●</span> Local help, made easier</div>
+          <h1>Trusted services from people <em>near you.</em></h1>
+          <p class="hero-text">Find dependable local help for everyday life — from babysitting and lawn care to cleaning, pet care, tutoring, and more.</p>
+
+          <form class="search-panel" id="heroSearch">
+            <label class="search-field">
+              <span>What do you need?</span>
+              <input id="serviceInput" type="text" placeholder="Try “lawn care” or “babysitter”" autocomplete="off" />
+            </label>
+            <label class="search-field location-field">
+              <span>Where?</span>
+              <input id="locationInput" type="text" placeholder="City or ZIP" autocomplete="postal-code" />
+            </label>
+            <button class="primary-btn search-btn" type="submit">Find local help</button>
+          </form>
+
+          <div class="trust-row">
+            <div><strong>4.9/5</strong><span>average provider rating</span></div>
+            <div><strong>7 categories</strong><span>for everyday needs</span></div>
+            <div><strong>Local first</strong><span>built around your area</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Preview of local service providers">
+          <div class="hero-card hero-card-main">
+            <div class="mini-chip">Popular nearby</div>
+            <div class="avatar avatar-a">EM</div>
+            <div>
+              <h3>Emma R.</h3>
+              <p>Babysitting & homework help</p>
+              <div class="stars">★★★★★ <span>4.9 (42)</span></div>
+            </div>
+            <div class="price">from <strong>$18/hr</strong></div>
+          </div>
+          <div class="hero-card floating top-right">
+            <span class="service-emoji">🌿</span>
+            <div><strong>Lawn care</strong><small>12 providers nearby</small></div>
+          </div>
+          <div class="hero-card floating bottom-left">
+            <span class="service-emoji">🐾</span>
+            <div><strong>Pet care</strong><small>Available this week</small></div>
+          </div>
+          <div class="visual-orb orb-one"></div>
+          <div class="visual-orb orb-two"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-strip" id="services">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <span class="kicker">Browse by need</span>
+            <h2>What can we help with?</h2>
+          </div>
+          <button class="text-link" id="showAllBtn">View all services →</button>
+        </div>
+
+        <div class="category-grid" id="categoryGrid">
+          <button class="category-card" data-category="Babysitting"><span>🧸</span><strong>Babysitting</strong><small>Care you can feel good about</small></button>
+          <button class="category-card" data-category="Lawn care"><span>🌿</span><strong>Lawn care</strong><small>Mowing, cleanup & yard help</small></button>
+          <button class="category-card" data-category="House cleaning"><span>✨</span><strong>House cleaning</strong><small>Recurring or one-time cleanups</small></button>
+          <button class="category-card" data-category="Pet care"><span>🐾</span><strong>Pet care</strong><small>Walks, drop-ins & sitting</small></button>
+          <button class="category-card" data-category="Tutoring"><span>📚</span><strong>Tutoring</strong><small>Local academic support</small></button>
+          <button class="category-card" data-category="Moving help"><span>📦</span><strong>Moving help</strong><small>Loading, lifting & local moves</small></button>
+          <button class="category-card" data-category="Handyman"><span>🛠️</span><strong>Handyman</strong><small>Small repairs & home projects</small></button>
+          <button class="category-card extra-category hidden" data-category="Errands"><span>🛒</span><strong>Errands</strong><small>Pickup, delivery & everyday tasks</small></button>
+          <button class="category-card extra-category hidden" data-category="Car washing"><span>🚗</span><strong>Car washing</strong><small>Mobile detailing and cleaning</small></button>
+          <button class="category-card extra-category hidden" data-category="Photography"><span>📸</span><strong>Photography</strong><small>Family, event & listing photos</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="providers-section">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <span class="kicker">Recommended nearby</span>
+            <h2>Popular local providers</h2>
+          </div>
+          <span class="location-pill" id="locationPill">📍 Showing example listings</span>
+        </div>
+
+        <div class="provider-grid" id="providerGrid"></div>
+        <div class="empty-state hidden" id="emptyState">
+          <div>🔎</div>
+          <h3>No exact matches yet</h3>
+          <p>Try a broader service name, or be the first provider in this category.</p>
+          <button class="primary-btn" data-open="provider">List a service</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="kicker">Simple by design</span>
+          <h2>Book local help in three steps</h2>
+          <p>No endless scrolling through random posts. LocalNest keeps the path from “I need help” to “it’s handled” simple.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card"><span class="step-number">1</span><div class="step-icon">🔎</div><h3>Search nearby</h3><p>Choose a service and enter your city or ZIP to find providers who work in your area.</p></article>
+          <article class="step-card"><span class="step-number">2</span><div class="step-icon">💬</div><h3>Compare & message</h3><p>Review pricing, availability, ratings, verification badges, and send questions before booking.</p></article>
+          <article class="step-card"><span class="step-number">3</span><div class="step-icon">✅</div><h3>Book with confidence</h3><p>Request a time, confirm the details, pay securely, and leave a review after the job is done.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety-section" id="safety">
+      <div class="container safety-grid">
+        <div>
+          <span class="kicker light">Trust & safety</span>
+          <h2>Designed to make local hiring feel safer.</h2>
+          <p>Not every service carries the same risk. LocalNest separates identity verification from higher-trust checks for care-related work, so customers can quickly understand what has actually been verified.</p>
+          <div class="safety-list">
+            <div><span>✓</span><p><strong>Identity badges</strong><br>Profiles can show completed identity, phone, and email verification.</p></div>
+            <div><span>✓</span><p><strong>Care-specific checks</strong><br>Babysitting and caregiving categories can require stronger screening before booking.</p></div>
+            <div><span>✓</span><p><strong>Reviews from completed jobs</strong><br>Only completed bookings count toward verified-job reviews.</p></div>
+          </div>
+        </div>
+        <div class="safety-card">
+          <div class="shield">✓</div>
+          <h3>Verified LocalNest profile</h3>
+          <div class="verification-row"><span>Identity confirmed</span><b>Verified</b></div>
+          <div class="verification-row"><span>Phone & email</span><b>Verified</b></div>
+          <div class="verification-row"><span>Background check</span><b class="gold">Care Plus</b></div>
+          <div class="verification-note">Badges should describe the exact check completed — never imply a guarantee of safety.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="provider-cta" id="providers">
+      <div class="container provider-cta-inner">
+        <div>
+          <span class="kicker">Earn locally</span>
+          <h2>Have a skill? Turn nearby demand into income.</h2>
+          <p>Create a profile, choose your service area, set your pricing, and accept the jobs that fit your schedule.</p>
+          <div class="earnings-row">
+            <div><strong>$0</strong><span>to create a basic profile</span></div>
+            <div><strong>Flexible</strong><span>hours and service area</span></div>
+            <div><strong>Direct</strong><span>local customer demand</span></div>
+          </div>
+        </div>
+        <button class="secondary-btn large" data-open="provider">Start offering a service</button>
+      </div>
+    </section>
+
+    <section class="business-section">
+      <div class="container business-grid">
+        <div class="business-copy">
+          <span class="kicker">Built to become a business</span>
+          <h2>More than a directory.</h2>
+          <p>The strongest version of LocalNest is a two-sided marketplace: customers find help, providers win work, and the platform earns when it creates real value.</p>
+        </div>
+        <div class="revenue-grid">
+          <article><span>01</span><h3>Booking fee</h3><p>Take a small percentage or flat fee only when a paid job is successfully booked.</p></article>
+          <article><span>02</span><h3>Provider Pro</h3><p>Offer a monthly plan with boosted visibility, analytics, custom availability, and lead tools.</p></article>
+          <article><span>03</span><h3>Featured placement</h3><p>Let trusted providers promote listings in a clearly labeled sponsored section.</p></article>
+          <article><span>04</span><h3>Local partnerships</h3><p>Partner with property managers, HOAs, real-estate agents, and apartment communities.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <div>
+          <span class="kicker">Start close to home</span>
+          <h2>Find someone local. Get it handled.</h2>
+        </div>
+        <form class="compact-search" id="footerSearch">
+          <input type="text" id="footerService" placeholder="What do you need help with?" />
+          <button class="primary-btn" type="submit">Search services</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="brand footer-brand"><span class="brand-mark">LN</span><span>LocalNest</span></a>
+        <p>Trusted help, close to home.</p>
+      </div>
+      <div><strong>Customers</strong><a href="#services">Browse services</a><a href="#how">How it works</a><a href="#safety">Trust & safety</a></div>
+      <div><strong>Providers</strong><a href="#providers">Offer a service</a><a href="#providers">Provider pricing</a><a href="#providers">Service standards</a></div>
+      <div><strong>Company</strong><a href="#">About</a><a href="#">Contact</a><a href="#">Terms</a><a href="#">Privacy</a></div>
+    </div>
+    <div class="container footer-bottom">© 2026 LocalNest. Prototype concept. Example providers and ratings are fictional.</div>
+  </footer>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
