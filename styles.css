@@ -249,3 +249,47 @@ footer { background: #14251f; color: white; padding: 65px 0 28px; }
   .floating { padding: 11px 12px; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* Step 1: Post a Job marketplace feature */
+.post-job-nav { color: var(--forest); }
+.hero-job-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 14px; font-size: 13px; color: var(--muted); }
+.hero-job-row .text-link { padding: 0; }
+.jobs-section { padding: 92px 0; background: #edf4ef; }
+.jobs-section .section-heading p { max-width: 760px; margin: 10px 0 0; }
+.job-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 26px; }
+.job-benefits article { background: rgba(255,255,255,.8); border: 1px solid rgba(31,90,67,.10); border-radius: 19px; padding: 19px; display: grid; grid-template-columns: 32px 1fr; column-gap: 10px; align-items: start; }
+.job-benefits article > span { width: 29px; height: 29px; display: grid; place-items: center; border-radius: 9px; background: var(--forest); color: white; font: 800 12px "Manrope"; grid-row: 1 / span 2; }
+.job-benefits strong { font-family: "Manrope"; font-size: 14px; }
+.job-benefits small { color: var(--muted); margin-top: 3px; line-height: 1.45; }
+.jobs-board { background: white; border: 1px solid var(--line); border-radius: 26px; padding: 24px; box-shadow: 0 20px 55px rgba(38,75,59,.08); }
+.jobs-board-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 18px; }
+.jobs-board-head h3 { font-size: 24px; margin: 5px 0 0; }
+.demo-pill { font-size: 11px; font-weight: 800; color: var(--forest); background: var(--mint); border-radius: 999px; padding: 7px 10px; }
+.job-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.job-card { border: 1px solid var(--line); border-radius: 20px; padding: 19px; display: flex; flex-direction: column; min-height: 230px; }
+.job-card.user-posted { border-color: var(--sage); box-shadow: inset 0 0 0 1px rgba(31,90,67,.05); }
+.job-card-top { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+.job-card .job-service { font: 800 16px "Manrope"; }
+.job-status { font-size: 10px; font-weight: 800; color: var(--forest); background: #edf6f1; border-radius: 999px; padding: 6px 8px; white-space: nowrap; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 7px; margin: 13px 0; color: var(--muted); font-size: 11px; }
+.job-meta span { background: var(--cream); border-radius: 999px; padding: 6px 8px; }
+.job-desc { color: var(--muted); font-size: 13px; margin: 0 0 16px; flex: 1; }
+.job-card-bottom { padding-top: 13px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.job-budget small { display: block; color: var(--muted); font-size: 10px; }
+.job-budget strong { font-size: 17px; }
+.job-owner-note { font-size: 10px; font-weight: 700; color: var(--forest); }
+.jobs-note { color: var(--muted); font-size: 11px; margin: 16px 0 0; }
+.form-two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-choice { display: flex !important; grid-template-columns: none !important; align-items: start; gap: 9px !important; font-weight: 500 !important; color: var(--muted); }
+.form-choice input { width: auto !important; margin-top: 3px; }
+
+@media (max-width: 1020px) {
+  .job-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .jobs-section { padding: 68px 0; }
+  .job-benefits, .job-grid { grid-template-columns: 1fr; }
+  .jobs-board { padding: 18px; }
+  .jobs-board-head { align-items: start; }
+  .form-two { grid-template-columns: 1fr; }
+}

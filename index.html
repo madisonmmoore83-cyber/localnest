@@ -19,21 +19,25 @@
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#services">Explore services</a>
+        <a href="#jobs">Open jobs</a>
         <a href="#how">How it works</a>
         <a href="#safety">Trust & safety</a>
         <a href="#providers">For providers</a>
       </nav>
       <div class="nav-actions">
         <button class="ghost-btn" data-open="signin">Sign in</button>
+        <button class="ghost-btn post-job-nav" data-open="job">Post a job</button>
         <button class="primary-btn small" data-open="provider">Offer a service</button>
       </div>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="#services">Explore services</a>
+      <a href="#jobs">Open jobs</a>
       <a href="#how">How it works</a>
       <a href="#safety">Trust & safety</a>
       <a href="#providers">For providers</a>
+      <button class="secondary-btn" data-open="job">Post a job</button>
       <button class="primary-btn" data-open="provider">Offer a service</button>
     </div>
   </header>
@@ -57,6 +61,10 @@
             </label>
             <button class="primary-btn search-btn" type="submit">Find local help</button>
           </form>
+          <div class="hero-job-row">
+            <span>Not sure who to hire?</span>
+            <button class="text-link" type="button" data-open="job">Post your job and let local providers respond →</button>
+          </div>
 
           <div class="trust-row">
             <div><strong>4.9/5</strong><span>average provider rating</span></div>
@@ -111,6 +119,38 @@
           <button class="category-card extra-category hidden" data-category="Errands"><span>🛒</span><strong>Errands</strong><small>Pickup, delivery & everyday tasks</small></button>
           <button class="category-card extra-category hidden" data-category="Car washing"><span>🚗</span><strong>Car washing</strong><small>Mobile detailing and cleaning</small></button>
           <button class="category-card extra-category hidden" data-category="Photography"><span>📸</span><strong>Photography</strong><small>Family, event & listing photos</small></button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="jobs-section" id="jobs">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <span class="kicker">New marketplace feature</span>
+            <h2>Post a job. Let nearby providers come to you.</h2>
+            <p>Tell LocalNest what you need, your budget, and where the job is. Providers can then respond instead of making you search one profile at a time.</p>
+          </div>
+          <button class="primary-btn" data-open="job">Post a job</button>
+        </div>
+
+        <div class="job-benefits">
+          <article><span>1</span><strong>Describe the job</strong><small>Add the service, location, timing, budget, and details.</small></article>
+          <article><span>2</span><strong>Get local responses</strong><small>Qualified providers can see open work that matches their services.</small></article>
+          <article><span>3</span><strong>Choose who fits</strong><small>Compare profiles and decide who you want to message or book.</small></article>
+        </div>
+
+        <div class="jobs-board">
+          <div class="jobs-board-head">
+            <div>
+              <span class="kicker">Open requests</span>
+              <h3>Recent jobs</h3>
+            </div>
+            <span class="demo-pill">Demo listings</span>
+          </div>
+          <div class="job-grid" id="jobGrid"></div>
+          <p class="jobs-note" id="jobsNote">Example jobs are fictional. Jobs you post in this prototype are saved only in this browser until LocalNest is connected to a real database.</p>
         </div>
       </div>
     </section>
@@ -225,7 +265,7 @@
         <a href="#" class="brand footer-brand"><span class="brand-mark">LN</span><span>LocalNest</span></a>
         <p>Trusted help, close to home.</p>
       </div>
-      <div><strong>Customers</strong><a href="#services">Browse services</a><a href="#how">How it works</a><a href="#safety">Trust & safety</a></div>
+      <div><strong>Customers</strong><a href="#services">Browse services</a><a href="#jobs">Post a job</a><a href="#how">How it works</a><a href="#safety">Trust & safety</a></div>
       <div><strong>Providers</strong><a href="#providers">Offer a service</a><a href="#providers">Provider pricing</a><a href="#providers">Service standards</a></div>
       <div><strong>Company</strong><a href="#">About</a><a href="#">Contact</a><a href="#">Terms</a><a href="#">Privacy</a></div>
     </div>

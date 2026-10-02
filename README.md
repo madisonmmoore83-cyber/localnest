@@ -1,26 +1,15 @@
-# LocalNest prototype
+# LocalNest prototype — Step 1
 
-A responsive front-end prototype for a local-services marketplace.
+This version adds the first recommended marketplace feature: **Post a Job**.
 
 ## Included
-- Responsive homepage
-- Service-category browsing
-- Service + location search demo
-- Provider listing cards and profile modals
-- Provider signup modal
-- Sign-in modal
-- Booking-request demo
-- Trust/safety structure
-- Monetization concepts built into the page
+- Responsive LocalNest homepage
+- Service browsing and provider cards
+- Provider and sign-in prototype flows
+- **Post a Job** form
+- Open-jobs board with sample listings
+- New job requests saved in the browser with `localStorage`
+- Clear prototype disclosure: requests are not sent to real providers yet
 
-## Run locally
-Open `index.html` in a browser. For the most reliable local experience, run a tiny local server from this folder, for example:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
-
-## Important
-This is a front-end prototype. It does not yet have a database, payments, real accounts, messaging, geolocation, background-check integrations, or production authentication.
+## Next build step
+Connect LocalNest to real customer/provider accounts and a database so jobs, profiles, messages, and bookings can be securely stored and shared across users.
