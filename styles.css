@@ -293,3 +293,68 @@ footer { background: #14251f; color: white; padding: 65px 0 28px; }
   .jobs-board-head { align-items: start; }
   .form-two { grid-template-columns: 1fr; }
 }
+
+
+/* Step 2: real accounts + database */
+.backend-banner {
+  background: #fff7df;
+  border-bottom: 1px solid #eadfbd;
+  color: #66541f;
+  font-size: 12px;
+}
+.backend-banner.connected {
+  background: #eaf5ee;
+  border-bottom-color: #d0e5d8;
+  color: var(--forest-dark);
+}
+.backend-banner-inner {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.backend-banner .text-link { white-space: nowrap; }
+.mobile-auth-btn { width: 100%; text-align: left; padding-left: 0; }
+.auth-choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.auth-switch { justify-self: start; padding: 2px 0; }
+.account-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 22px 0;
+}
+.account-summary > div {
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 14px;
+}
+.account-summary small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.danger-link {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ebc9c9;
+  color: #8b3030;
+  background: #fff8f8;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 800;
+}
+.form-error {
+  background: #fff1f1;
+  border: 1px solid #efc8c8;
+  color: #8b3030;
+  border-radius: 12px;
+  padding: 11px 13px;
+  font-size: 12px;
+}
+button:disabled { opacity: .65; cursor: wait; }
+
+@media (max-width: 760px) {
+  .backend-banner-inner { align-items: flex-start; padding-top: 10px; padding-bottom: 10px; }
+  .auth-choice-grid, .account-summary { grid-template-columns: 1fr; }
+}

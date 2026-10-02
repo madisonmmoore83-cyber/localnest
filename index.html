@@ -25,7 +25,7 @@
         <a href="#providers">For providers</a>
       </nav>
       <div class="nav-actions">
-        <button class="ghost-btn" data-open="signin">Sign in</button>
+        <button class="ghost-btn" id="authButton" data-open="signin">Sign in</button>
         <button class="ghost-btn post-job-nav" data-open="job">Post a job</button>
         <button class="primary-btn small" data-open="provider">Offer a service</button>
       </div>
@@ -37,10 +37,18 @@
       <a href="#how">How it works</a>
       <a href="#safety">Trust & safety</a>
       <a href="#providers">For providers</a>
+      <button class="ghost-btn mobile-auth-btn" id="mobileAuthButton" data-open="signin">Sign in</button>
       <button class="secondary-btn" data-open="job">Post a job</button>
       <button class="primary-btn" data-open="provider">Offer a service</button>
     </div>
   </header>
+
+  <div class="backend-banner" id="backendBanner">
+    <div class="container backend-banner-inner">
+      <span><strong>Step 2 setup:</strong> LocalNest is ready for real accounts and database storage. Connect Supabase to activate it.</span>
+      <button class="text-link" type="button" data-open="setup">Setup info →</button>
+    </div>
+  </div>
 
   <main>
     <section class="hero">
@@ -150,7 +158,7 @@
             <span class="demo-pill">Demo listings</span>
           </div>
           <div class="job-grid" id="jobGrid"></div>
-          <p class="jobs-note" id="jobsNote">Example jobs are fictional. Jobs you post in this prototype are saved only in this browser until LocalNest is connected to a real database.</p>
+          <p class="jobs-note" id="jobsNote">Example jobs are fictional. Once Supabase is connected, signed-in customer jobs are stored in the LocalNest database and can be loaded on other devices.</p>
         </div>
       </div>
     </section>
@@ -269,7 +277,7 @@
       <div><strong>Providers</strong><a href="#providers">Offer a service</a><a href="#providers">Provider pricing</a><a href="#providers">Service standards</a></div>
       <div><strong>Company</strong><a href="#">About</a><a href="#">Contact</a><a href="#">Terms</a><a href="#">Privacy</a></div>
     </div>
-    <div class="container footer-bottom">© 2026 LocalNest. Prototype concept. Example providers and ratings are fictional.</div>
+    <div class="container footer-bottom">© 2026 LocalNest. Step 2 build. Example providers and ratings are fictional.</div>
   </footer>
 
   <div class="modal-backdrop hidden" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -279,6 +287,8 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
