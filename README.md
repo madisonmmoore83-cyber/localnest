@@ -1,49 +1,29 @@
-# LocalNest — Step 2: Real Accounts + Database
+# LocalNest — Step 3: Real Provider Profiles
 
-This build upgrades LocalNest from browser-only prototype storage to a real Supabase-backed marketplace foundation.
+Step 3 adds real provider listings on top of the working Step 2 account + jobs database.
 
-## What Step 2 adds
+## Adds
+- Turn an existing customer account into a provider account
+- Provider profile editor
+- Service category, headline, bio, hourly rate
+- Service radius, availability, years of experience
+- City + ZIP
+- Profile photo uploads using Supabase Storage
+- Draft/publish control
+- Public browsing of published providers
+- Live provider profiles appear in the existing LocalNest provider grid
+- Verification stays separate from publishing
 
-- Customer and provider account creation
-- Email/password sign-in
-- Persistent sessions
-- Profiles table
-- Jobs table
-- Row Level Security (RLS)
-- Signed-in job posting
-- Live jobs stored in Postgres and visible across devices for authenticated users
-- Customer email is never displayed on job cards
-- Graceful browser-only fallback until the backend is connected
+## Install in this order
+1. Run `supabase-step3.sql` in Supabase SQL Editor.
+2. Upload `index.html`, `styles.css`, `app.js`, `step3.js`, and `README.md` to the existing GitHub repo.
+3. DO NOT overwrite your existing `config.js` — it already contains your working public Supabase settings.
+4. Wait for Vercel to redeploy.
+5. Sign in to LocalNest and click **Offer a service**.
+6. Build a provider profile, check **Publish my provider profile**, save, and verify it appears on the live site.
 
-## Files
+## Safety note
+A published provider is not automatically verified. Real verification/background-check features should be implemented separately before LocalNest claims a provider is verified, especially for childcare or other higher-trust services.
 
-- `index.html`
-- `styles.css`
-- `app.js`
-- `config.js`
-- `supabase-setup.sql`
-
-## Setup order
-
-1. Create a Supabase project.
-2. Open Supabase SQL Editor and run `supabase-setup.sql`.
-3. In Supabase project settings/API, copy:
-   - Project URL
-   - Publishable key (or legacy anon public key)
-4. Paste those two public values into `config.js`.
-5. In Supabase Auth URL configuration, set the Site URL to your live Vercel site.
-6. Upload all changed files to the existing GitHub `localnest` repository.
-7. Vercel will redeploy automatically.
-8. Create a test customer account, confirm email if required, sign in, and post a test job.
-
-## Security
-
-`config.js` is browser-visible by design, so only use Supabase's public Publishable/anon key there.
-
-**Never place a service_role key, secret API key, database password, or other private credential in GitHub or browser JavaScript.**
-
-The database uses Row Level Security policies from `supabase-setup.sql` so signed-in users can write only their own profile and jobs.
-
-## Next build stage
-
-Step 3: real provider profiles with service category, pricing, bio, service radius, availability, profile photo, and publish/unpublish controls.
+## Next recommended stage
+Step 4: real location matching and service areas.
